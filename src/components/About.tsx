@@ -1,89 +1,133 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
-    <section id="about" className="min-h-screen flex items-center bg-gradient-to-br from-primary-50 to-white pt-20">
-      <div className="container mx-auto px-6 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 animate-fade-in">
-              Bonjour, je suis{' '}
-              <span className="text-primary-600">Développeuse</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up">
-              Développeuse freelance passionnée, créative et fiable
-            </p>
+    <section id="about" className="min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-slate-100 pt-20 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-200/20 to-primary-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-electric-200/20 to-electric-300/20 rounded-full blur-3xl"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-up">
-              <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">À propos de moi</h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  Je suis une développeuse freelance passionnée par la création de solutions 
-                  numériques innovantes. Mon approche allie créativité et rigueur technique 
-                  pour livrer des projets de qualité qui répondent parfaitement aux besoins 
-                  de mes clients.
-                </p>
-                <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  Avec une expertise solide en développement web et mobile, je m'engage 
-                  à fournir des solutions fiables, performantes et évolutives. Chaque 
-                  projet est une nouvelle opportunité de créer quelque chose d'exceptionnel.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="bg-primary-50 px-4 py-2 rounded-full">
-                    <span className="text-primary-700 font-semibold">5+ années d'expérience</span>
+      <div className="container mx-auto px-6 py-16 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Content */}
+            <motion.div 
+              className="space-y-8"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="space-y-6">
+                <motion.h1 
+                  className="text-6xl lg:text-7xl font-bold text-slate-900 leading-tight"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  {t('hero.greeting')}{' '}
+                  <span className="bg-gradient-to-r from-primary-800 to-electric-600 bg-clip-text text-transparent">
+                    {t('hero.name')}
+                  </span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-2xl lg:text-3xl text-slate-600 font-medium"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  {t('hero.title')}
+                </motion.p>
+
+                <motion.p 
+                  className="text-lg text-slate-600 leading-relaxed max-w-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  {t('hero.description')}
+                </motion.p>
+              </div>
+
+                  {/* Stats */}
+                  <motion.div 
+                    className="grid grid-cols-3 gap-6"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                  >
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary-800">7+</div>
+                      <div className="text-sm text-slate-600">{t('about.experience')}</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary-800">80+</div>
+                      <div className="text-sm text-slate-600">{t('about.projects')}</div>
+                </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary-800">100%</div>
+                      <div className="text-sm text-slate-600">{t('about.satisfaction')}</div>
+                </div>
+                  </motion.div>
+
+                  {/* CTA Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.0 }}
+                  >
+                    <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-800 to-primary-900 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <span>{t('about.download_cv')}</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </button>
+                  </motion.div>
+            </motion.div>
+
+            {/* Right side - Professional Photo */}
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <div className="relative">
+                {/* Glassmorphism background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl"></div>
+                
+                {/* Professional photo container */}
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+                  <div className="aspect-square max-w-md mx-auto relative">
+                    {/* Professional photo placeholder with gradient */}
+                    <div className="w-full h-full bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 rounded-2xl flex items-center justify-center shadow-inner">
+                      <div className="text-8xl text-slate-500">👨‍💻</div>
+              </div>
+
+                    {/* Floating elements */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-2xl">⚡</span>
+                </div>
+                    <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-electric-400 to-electric-600 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-2xl">🚀</span>
+                </div>
+              </div>
+
+                  {/* Professional info */}
+                  <div className="text-center mt-6">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{t('hero.name')}</h3>
+                    <p className="text-slate-600 font-medium">Développeur Full Stack</p>
+                    <p className="text-sm text-slate-500 mt-1">{t('about.specialization')}</p>
                   </div>
-                  <div className="bg-primary-50 px-4 py-2 rounded-full">
-                    <span className="text-primary-700 font-semibold">50+ projets livrés</span>
-                  </div>
-                  <div className="bg-primary-50 px-4 py-2 rounded-full">
-                    <span className="text-primary-700 font-semibold">100% satisfaction client</span>
-                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-6 animate-slide-up">
-              {/* Professional Photo Placeholder */}
-              <div className="bg-white rounded-2xl shadow-xl p-6 text-center">
-                <div className="w-48 h-48 mx-auto mb-4 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center">
-                  <div className="text-6xl text-primary-600">👩‍💻</div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">Développeuse Freelance</h3>
-                <p className="text-gray-600">Spécialisée en solutions web modernes</p>
-              </div>
-
-              <div className="flex items-center space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="bg-primary-100 p-3 rounded-full">
-                  <div className="text-primary-600 text-xl">💻</div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">Passionnée</h3>
-                  <p className="text-gray-600">Développement web et mobile avec amour du détail</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="bg-primary-100 p-3 rounded-full">
-                  <div className="text-primary-600 text-xl">❤️</div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">Créative</h3>
-                  <p className="text-gray-600">Solutions innovantes et design moderne</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="bg-primary-100 p-3 rounded-full">
-                  <div className="text-primary-600 text-xl">🛡️</div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800">Fiable</h3>
-                  <p className="text-gray-600">Livraisons dans les temps et qualité garantie</p>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

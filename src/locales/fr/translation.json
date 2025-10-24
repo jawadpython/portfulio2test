@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Jawad Khribech",
+    "title": "Développeur Full Stack & Créateur d'Expériences Web",
+    "description": "Je crée des solutions numériques performantes qui transforment les idées en réalité. Mon expertise technique et ma vision stratégique garantissent des projets robustes qui dépassent les attentes."
+  },
+  "navigation": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "description1": "Je suis un développeur full-stack passionné par la création de solutions numériques performantes. Mon approche allie expertise technique et vision stratégique pour livrer des projets robustes qui dépassent les attentes de mes clients.",
+    "description2": "Avec une expertise approfondie en développement web et mobile, je m'engage à fournir des solutions scalables, sécurisées et optimisées. Chaque projet est une opportunité de repousser les limites de l'innovation technique.",
+    "experience": "Années d'expérience",
+    "projects": "Projets livrés",
+    "satisfaction": "Satisfaction client",
+    "download_cv": "Télécharger le CV",
+    "specialization": "Spécialisé en solutions web modernes"
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "subtitle": "Technologies et outils que j'utilise pour créer des solutions modernes et performantes",
+    "stack_title": "Stack Technique",
+    "stack_subtitle": "Mon expertise organisée par domaine technique",
+    "approach_title": "Approche de développement",
+    "clean_code": "Code propre",
+    "clean_code_desc": "Code maintenable et bien documenté",
+    "testing": "Tests & Qualité",
+    "testing_desc": "Tests automatisés et revue de code",
+    "performance": "Performance",
+    "performance_desc": "Optimisation et bonnes pratiques"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Découvrez quelques-uns de mes projets récents qui démontrent mon expertise technique et ma vision stratégique",
+    "features": "Fonctionnalités clés",
+    "code": "Code",
+    "demo": "Démo",
+    "github_link": "Voir plus de projets sur GitHub",
+    "status": {
+      "production": "En production",
+      "development": "En développement",
+      "mvp": "MVP terminé"
+    }
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "Prêt à collaborer sur votre prochain projet ? N'hésitez pas à me contacter !",
+    "form_title": "Envoyez-moi un message",
+    "name": "Nom complet",
+    "email": "Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "message_help": "(minimum 10 caractères)",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success_title": "Message envoyé !",
+    "success_message": "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+    "required": "requis",
+    "name_required": "Le nom est requis",
+    "email_required": "L'email est requis",
+    "email_invalid": "L'email n'est pas valide",
+    "subject_required": "Le sujet est requis",
+    "message_required": "Le message est requis",
+    "message_min_length": "Le message doit contenir au moins 10 caractères"
+  },
+  "footer": {
+    "copyright": "© 2024 Jawad Khribech - Développeur Full Stack. Tous droits réservés."
+  }
+}

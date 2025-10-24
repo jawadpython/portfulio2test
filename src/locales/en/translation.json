@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Jawad Khribech",
+    "title": "Full Stack Developer & Web Experience Creator",
+    "description": "I create high-performance digital solutions that transform ideas into reality. My technical expertise and strategic vision ensure robust projects that exceed expectations."
+  },
+  "navigation": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "description1": "I am a passionate full-stack developer focused on creating high-performance digital solutions. My approach combines technical expertise and strategic vision to deliver robust projects that exceed client expectations.",
+    "description2": "With deep expertise in web and mobile development, I am committed to providing scalable, secure, and optimized solutions. Each project is an opportunity to push the boundaries of technical innovation.",
+    "experience": "Years of experience",
+    "projects": "Projects delivered",
+    "satisfaction": "Client satisfaction",
+    "download_cv": "Download CV",
+    "specialization": "Specialized in modern web solutions"
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I use to create modern and performant solutions",
+    "stack_title": "Technical Stack",
+    "stack_subtitle": "My expertise organized by technical domain",
+    "approach_title": "Development Approach",
+    "clean_code": "Clean Code",
+    "clean_code_desc": "Maintainable and well-documented code",
+    "testing": "Testing & Quality",
+    "testing_desc": "Automated tests and code review",
+    "performance": "Performance",
+    "performance_desc": "Optimization and best practices"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Discover some of my recent projects that demonstrate my technical expertise and strategic vision",
+    "features": "Key Features",
+    "code": "Code",
+    "demo": "Demo",
+    "github_link": "View more projects on GitHub",
+    "status": {
+      "production": "In Production",
+      "development": "In Development",
+      "mvp": "MVP Completed"
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Ready to collaborate on your next project? Don't hesitate to contact me!",
+    "form_title": "Send me a message",
+    "name": "Full Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "message_help": "(minimum 10 characters)",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success_title": "Message Sent!",
+    "success_message": "Thank you for your message. I will respond as soon as possible.",
+    "required": "required",
+    "name_required": "Name is required",
+    "email_required": "Email is required",
+    "email_invalid": "Email is not valid",
+    "subject_required": "Subject is required",
+    "message_required": "Message is required",
+    "message_min_length": "Message must contain at least 10 characters"
+  },
+  "footer": {
+    "copyright": "© 2024 Jawad Khribech - Full Stack Developer. All rights reserved."
+  }
+}

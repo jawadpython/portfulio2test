@@ -1,30 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    <meta name="theme-color" content="#1e293b" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Jawad Khribech – Développeur Full Stack à Casablanca</title>
+    <meta name="title" content="Jawad Khribech – Développeur Full Stack à Casablanca" />
+    <meta name="description" content="Portfolio professionnel de Jawad Khribech, développeur full stack spécialisé en React, Node.js et design web moderne. Créateur d'expériences web performantes à Casablanca." />
+    <meta name="keywords" content="développeur full stack, React, Node.js, TypeScript, JavaScript, Casablanca, portfolio, web development, frontend, backend" />
+    <meta name="author" content="Jawad Khribech" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="French" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jawadkhribech.dev/" />
+    <meta property="og:title" content="Jawad Khribech – Développeur Full Stack à Casablanca" />
+    <meta property="og:description" content="Portfolio professionnel de Jawad Khribech, développeur full stack spécialisé en React, Node.js et design web moderne." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jawad Khribech - Développeur Full Stack" />
+    <meta property="og:site_name" content="Jawad Khribech Portfolio" />
+    <meta property="og:locale" content="fr_FR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jawadkhribech.dev/" />
+    <meta property="twitter:title" content="Jawad Khribech – Développeur Full Stack à Casablanca" />
+    <meta property="twitter:description" content="Portfolio professionnel de Jawad Khribech, développeur full stack spécialisé en React, Node.js et design web moderne." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="twitter:image:alt" content="Jawad Khribech - Développeur Full Stack" />
+    
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="MA-CAS" />
+    <meta name="geo.placename" content="Casablanca" />
+    <meta name="geo.position" content="33.5731;-7.5898" />
+    <meta name="ICBM" content="33.5731, -7.5898" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon-180x180.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    
+    <!-- Manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//images.unsplash.com" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jawad Khribech",
+      "jobTitle": "Développeur Full Stack",
+      "description": "Développeur full stack spécialisé en React, Node.js et design web moderne",
+      "url": "https://jawadkhribech.dev",
+      "image": "https://jawadkhribech.dev/og-image.jpg",
+      "sameAs": [
+        "https://github.com/jawadkhribech",
+        "https://linkedin.com/in/jawadkhribech",
+        "https://twitter.com/jawadkhribech"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Casablanca",
+        "addressCountry": "MA"
+      },
+      "knowsAbout": [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "JavaScript",
+        "Next.js",
+        "Python",
+        "MongoDB",
+        "PostgreSQL",
+        "Docker",
+        "AWS"
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Développeur Full Stack",
+        "description": "Créateur d'expériences web performantes et modernes"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Jawad Khribech Portfolio",
+      "url": "https://jawadkhribech.dev",
+      "description": "Portfolio professionnel de Jawad Khribech, développeur full stack",
+      "author": {
+        "@type": "Person",
+        "name": "Jawad Khribech"
+      },
+      "inLanguage": "fr"
+    }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

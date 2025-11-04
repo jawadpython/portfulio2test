@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    phone: '',
     subject: '',
     message: ''
   });
@@ -15,6 +15,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
 
   const validateForm = () => {
     const newErrors: {[key: string]: string} = {};
@@ -23,10 +24,14 @@ const Contact: React.FC = () => {
       newErrors.name = t('contact.name_required');
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = t('contact.email_required');
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = t('contact.email_invalid');
+    if (!formData.phone.trim()) {
+      newErrors.phone = t('contact.phone_required');
+    } else {
+      // Remove all non-digit characters for validation
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      if (phoneDigits.length < 8) {
+        newErrors.phone = t('contact.phone_invalid');
+      }
     }
 
     if (!formData.subject.trim()) {
@@ -61,6 +66,7 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
     
     if (!validateForm()) {
       return;
@@ -68,19 +74,49 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after success
-    setTimeout(() => {
-    setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitted(false);
-    }, 3000);
+    try {
+      const response = await fetch('https://formspree.io/f/xyzbqagv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      console.log('Formspree response:', response);
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Clear form immediately after success
+        setFormData({ name: '', phone: '', subject: '', message: '' });
+        setErrors({});
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        // Handle Formspree errors
+        const errorMessage = data.error || data.message || 'Failed to send message. Please try again.';
+        setSubmitError(errorMessage);
+        console.error('Formspree error:', data);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,12 +164,31 @@ const Contact: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">Message envoyé !</h3>
-                <p className="text-slate-600">Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+                <h3 className="text-2xl font-bold text-slate-800 mb-2 flex items-center justify-center gap-2">
+                  <span>✅</span>
+                  {t('contact.success_title') || 'Message sent successfully!'}
+                </h3>
+                <p className="text-slate-600">{t('contact.success_message') || 'Thank you for your message. I will respond as soon as possible.'}</p>
               </motion.div>
             ) : (
               <>
                 <h3 className="text-3xl font-bold text-slate-900 mb-8 text-center">{t('contact.form_title')}</h3>
+            
+            {submitError && (
+              <motion.div
+                className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="text-red-700 text-sm font-medium">{submitError}</p>
+                </div>
+              </motion.div>
+            )}
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -164,28 +219,28 @@ const Contact: React.FC = () => {
                       )}
                 </div>
                 <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
-                        {t('contact.email')} *
+                      <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
+                        {t('contact.phone')} *
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-800 focus:border-transparent transition-all duration-300 ${
-                          errors.email ? 'border-red-300 bg-red-50' : 'border-slate-300'
+                          errors.phone ? 'border-red-300 bg-red-50' : 'border-slate-300'
                         }`}
-                    placeholder={t('contact.email')}
+                    placeholder={t('contact.phone')}
                   />
-                      {errors.email && (
+                      {errors.phone && (
                         <motion.p 
                           className="text-red-500 text-sm mt-1"
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          {errors.email}
+                          {errors.phone}
                         </motion.p>
                       )}
                 </div>
@@ -244,7 +299,7 @@ const Contact: React.FC = () => {
                           {errors.message}
                         </motion.p>
                       )}
-                      <span className="text-xs text-slate-500 ml-auto">
+                      <span className="text-xs text-slate-500 ms-auto">
                         {formData.message.length}/500
                       </span>
                     </div>

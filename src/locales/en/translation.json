@@ -53,6 +53,7 @@
     "form_title": "Send me a message",
     "name": "Full Name",
     "email": "Email",
+    "phone": "Phone Number",
     "subject": "Subject",
     "message": "Message",
     "message_help": "(minimum 10 characters)",
@@ -64,6 +65,8 @@
     "name_required": "Name is required",
     "email_required": "Email is required",
     "email_invalid": "Email is not valid",
+    "phone_required": "Phone number is required",
+    "phone_invalid": "Phone number must contain at least 8 digits",
     "subject_required": "Subject is required",
     "message_required": "Message is required",
     "message_min_length": "Message must contain at least 10 characters"
